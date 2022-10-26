@@ -25,7 +25,7 @@
             <div class="card-body">
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu e-mail" autofocus>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu e-mail" value="<?= $_POST['email']?>" autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
