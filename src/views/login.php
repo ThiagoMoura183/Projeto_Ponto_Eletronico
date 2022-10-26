@@ -23,9 +23,13 @@
                 <i class="icofont-runner-alt-1 ml-2"></i>
             </div>
             <div class="card-body">
+                <?php include(TEMPLATE_PATH . '/messages.php') ?>
                 <div class="form-group">
                     <label for="email">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu e-mail" value="<?= $_POST['email']?>" autofocus>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="Digite seu e-mail" value="
+                    <?= isset($_POST['email']) ? $_POST['email'] : null ?>
+                    
+                    " autofocus>
                 </div>
                 <div class="form-group">
                     <label for="password">Senha</label>
