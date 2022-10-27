@@ -33,7 +33,7 @@ aside.sidebar .sidebar-widgets {
     bottom: 5px;
 }
 
-aside.sidebar .sidebar-widget .info{
+aside.sidebar .sidebar-widget .info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -184,5 +184,39 @@ footer.footer {
 }
 
 main.content {
+    background-color: #FFF;
     grid-area: content;
+    margin: 20px;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.2);
+}
+
+main.content .content-title {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 15px;
+
+}
+
+main.content .content-title .icon {
+    font-size: 3rem;
+}
+
+main.content .content-title h1 {
+    font-size: 1.8rem;
+    color: #444;
+    font-weight: 300;
+    margin: 0;
+}
+
+main.content .content-title h2 {
+    font-size: 1.2rem;
+    font-weight: 300;
+    color: #888;
+}
+
+.record {
+    font-size: 2.2rem;
 }
