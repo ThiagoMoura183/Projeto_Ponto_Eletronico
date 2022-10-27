@@ -23,6 +23,37 @@ body.hide-sidebar aside.sidebar {
     display: none;
 }
 
+aside.sidebar .sidebar-widget {
+    display: flex;
+    align-items: center;
+}
+
+aside.sidebar .sidebar-widgets {
+    position: sticky;
+    bottom: 5px;
+}
+
+aside.sidebar .sidebar-widget .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+aside.sidebar .sidebar-widget .icon {
+    font-size: 3.5rem;
+    margin: 2px 10px 2px 0px;
+}
+
+aside.sidebar .info .main {
+    font-size: 2rem;
+}
+
+.division {
+    widows: 80%;
+    border: solid 1px #EEE;
+}
+
 header.header .dropdown-content {
     display: none;
     position: absolute;
@@ -143,6 +174,13 @@ aside.sidebar .menu li.nav-item a {
 
 footer.footer {
     grid-area: footer;
+    font-size: 1.1rem;
+    display: flex;
+    background-color: #222;
+    color: #FFF;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 30px;
 }
 
 main.content {
