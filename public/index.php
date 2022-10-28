@@ -15,7 +15,7 @@ $uri = urldecode(
 
 //Essa é uma validação para que, caso o arquivo seja / ou vazio, caia diretamente no login.
 if ($uri === '/' || $uri === '' || $uri === '/index.php') {
-    $uri = '/login.php';
+    $uri = '/day_records.php';
 }
 
 require_once(CONTROLLER_PATH . "/{$uri}");
