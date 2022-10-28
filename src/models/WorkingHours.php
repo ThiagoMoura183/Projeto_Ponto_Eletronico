@@ -1,7 +1,7 @@
 <?php
 
-class User extends Model {
-    protected static $tableName = 'users';
+class WorkingHours extends Model {
+    protected static $tableName = 'working_hours';
     protected static $columns = [
         'id',
         'user_id',
@@ -11,5 +11,5 @@ class User extends Model {
         'time3',
         'time4',
         'worked_time',
-    ]; 
+    ];
 }
