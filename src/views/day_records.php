@@ -10,7 +10,7 @@
         </div>
         <div class="card-body">
             <div class="d-flex m-5 justify-content-around">
-                <span class="record">Entrada 1:<?= $records->time1 ?? '---' ?></span>
+                <span class="record">Entrada 1: <?= $records->time1 ?? '---' ?></span>
                 <span class="record">Saída 2: <?= $records->time2 ?? '---' ?></span>
             </div>
             <div class="d-flex m-5 justify-content-around">
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="card-footer d-flex justify-content-center">
-            <a href="#" class="btn btn-success btn-lg"><i class="icofont-check mr-1"></i>Bater o Ponto</a>
+            <a href="innout.php" class="btn btn-success btn-lg"><i class="icofont-check mr-1"></i>Bater o Ponto</a>
         </div>
     </div>
 </main>
