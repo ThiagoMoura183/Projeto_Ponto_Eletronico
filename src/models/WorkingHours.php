@@ -12,4 +12,16 @@ class WorkingHours extends Model {
         'time4',
         'worked_time',
     ];
+
+    public static function LoadFromUserAndDate($userId, $workDate) {
+        $registry = self::getOne(['user_id' => $userId, 'work_Date' => $workDate]);
+        if (!$registry) {
+            $registry = new WorkingHours([
+                'user_id' => $userId,
+                'work_date' => $workDate,
+                'worked_time' => 0
+            ]);
+        }
+        return $registry;
+    }
 }
