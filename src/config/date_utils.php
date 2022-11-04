@@ -42,3 +42,20 @@ function getDateFromInterval($interval) {
 function getDateFromString($str) {
     return DateTimeImmutable::createFromFormat('H:i:s', $str);
 }
+
+function getFirstDayOfMonth($date) {
+    $time = getDateAsDateTime($date)->getTimeStamp();
+    return new DateTime(date('Y-m-1', $time));
+}
+
+function getLastDayOfMonth($date) {
+    $time = getDateAsDateTime($date)->getTimeStamp();
+    return new DateTime(date('Y-m-t', $time));
+}
+
+function getSecondsFromDateInterval($interval) {
+    $d1 = new DateTimeImmutable();
+    $d2 = $d1->add($interval);
+    return $d2->getTimeStamp() - $d1->getTimeStamp();
+}
+
