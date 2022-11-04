@@ -23,6 +23,13 @@ function loadTemplateView($viewName, $params = array()) {
             }
         }
     }
+
+    $user = $_SESSION['user'];
+    $workingHours = WorkingHours::LoadFromUserAndDate($user->id, date('Y-m-d'));
+    $workedInterval = $workingHours->getWorkedInterval()->format('%H:%I:%S');
+    $exitTime = $workingHours->getExitTIme()->format('H:i:s');
+    $activeClock = $workingHours->getActiveClock();
+
     require_once(TEMPLATE_PATH . "/header.php");
     require_once(TEMPLATE_PATH . "/left.php");
     require_once(VIEW_PATH . "/{$viewName}.php");
