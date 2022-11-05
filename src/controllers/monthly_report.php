@@ -6,15 +6,34 @@ requireValidSession();
 $currentDate = new DateTime();
 
 $user = $_SESSION['user'];
-$registries = WorkingHours::getMonthlyReport($user->id, new DateTime());
+$selectedUserId = $user->id;
+$users = null;
+
+if ($user->is_admin) {
+    $users = User::get();
+    $selectedUserId = $_POST['user'] ? $_POST['user'] : $user->id;
+}
+
+$SelectedPeriod = $_POST['period'] ? $_POST['period'] : $currentDate->format('Y-m');
+$periods = [];
+
+for ($yearDiff = 0; $yearDiff <= 2; $yearDiff++) {
+    $year = date('Y') - $yearDiff;
+    for ($month = 12; $month >= 01; $month--) {
+            $date = new DateTime("{$year}-{$month}-1");
+            $periods[$date->format('Y-m')] = strftime('%B de %Y', $date->getTimestamp());
+    }
+}
+
+$registries = WorkingHours::getMonthlyReport($selectedUserId, $SelectedPeriod);
 
 $report = [];
 $workDay = 0;
 $sumOfWorkedTime = 0;
-$lastDay = getLastDayOfMonth($currentDate)->format('d');
+$lastDay = getLastDayOfMonth($SelectedPeriod)->format('d');
 
 for ($day = 1; $day <= $lastDay; $day++) {
-    $date = $currentDate->format('Y-m') . '-' . sprintf('%02d', $day);
+    $date = $SelectedPeriod . '-' . sprintf('%02d', $day);
     $registry = $registries[$date];
 
     if (isPastWorkDay($date)) $workDay++;
@@ -33,9 +52,12 @@ $sign = ($sumOfWorkedTime >= $expectedTime) ? '+' : '-';
 loadTemplateView(
     'monthly_report',
     [
-        'report' => $report, 
-        'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime), 
-        'balance' => "{$sign}{$balance}"
+        'report' => $report,
+        'sumOfWorkedTime' => getTimeStringFromSeconds($sumOfWorkedTime),
+        'balance' => "{$sign}{$balance}",
+        'selectedPeriod' => $SelectedPeriod,
+        'periods' => $periods,
+        'users' => $users,
+        'selectedUserId' => $selectedUserId,
     ]
 );
-
