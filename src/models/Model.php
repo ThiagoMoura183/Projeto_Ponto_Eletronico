@@ -54,6 +54,13 @@ class Model {
         }
     }
 
+
+    public static function getCount($filters = []) {
+        $result = static::getResultSetFromSelect(
+            $filters, 'count(*) as count');
+        return $result->fetch_assoc()['count'];
+    }
+
     private static function getFilters($filters) {
         $sql = "";
         if (count($filters) > 0) {

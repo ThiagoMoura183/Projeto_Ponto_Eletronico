@@ -12,4 +12,8 @@ class User extends Model {
         'time4',
         'worked_time',
     ]; 
+
+    public static function  getActiveUsersCount() {
+        return static::getCount(['raw' => 'end_date IS NULL']);
+    }
 }
