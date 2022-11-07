@@ -5,15 +5,24 @@ class Model {
     protected static $columns = [];
     protected $values = [];
     
-    public function __construct($arr) {
-        $this->loadFromArray($arr);
+    public function __construct($arr, $sanitize = true) {
+        $this->loadFromArray($arr, $sanitize);
     }
 
-    public function loadFromArray($arr) {
+    public function loadFromArray($arr,  $sanitize = true) {
         if ($arr) {
+            // $conn = Database::getConnection();
             foreach($arr as $key => $value) {
-                $this->$key = $value;
+                // Validação para impedir INJECTIONS e input de HTML em campos.
+                $cleanValue = $value;
+                if ($sanitize && isset($cleanValue)) {
+                    $cleanValue = strip_tags(trim($cleanValue)); // Evitar código HTML
+                    $cleanValue = htmlentities($cleanValue, ENT_NOQUOTES); // Evitar código HTML
+                    // $cleanValue = mysqli_real_escape_string($conn, $cleanValue); //Evitar SQL Injection -- Foi comentado pois já existe PrepareStatement
+                }
+                $this->$key = $cleanValue; 
             }
+            // $conn->close();
         }
     }
 
