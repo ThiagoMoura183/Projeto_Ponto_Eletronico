@@ -27,7 +27,7 @@
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" type="email" name="email" id="email" placeholder="Digite seu e-mail" value="
-                    <?= isset($_POST['email']) ? $_POST['email'] : null ?> " autofocus>
+                    <?= isset($_POST['email']) ? $_POST['email'] : null ?> " autofocus autocomplete="off">
                     <div class="invalid-feedback">
                         <?= $errors['email'] ?>
                     </div>

@@ -14,14 +14,14 @@
         <div class="form-row">
             <div class="form-group col-md-6">
                 <label for="name">Nome</label>
-                <input type="text" id="name" name="name" placeholder="Informe o nome do usuário" class="form-control <?= $errors['name'] ? 'is-invalid' : '' ?>" value="<?= $name ?>">
+                <input type="text" id="name" name="name" placeholder="Informe o nome do usuário" class="form-control <?= $errors['name'] ? 'is-invalid' : '' ?>" value="<?= $name ?>" autocomplete="off">
                 <div class="invalid-feedback">
                     <?= $errors['name'] ?>
                 </div>
             </div>
             <div class="form-group col-md-6">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Informe o email do usuário" class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" value="<?= $email ?>">
+                <input type="email" id="email" name="email" placeholder="Informe o email do usuário" class="form-control <?= $errors['email'] ? 'is-invalid' : '' ?>" value="<?= $email ?>" autocomplete="off">
                 <div class="invalid-feedback">
                     <?= $errors['email'] ?>
                 </div>
@@ -31,7 +31,7 @@
             <div class="form-group col-md-6">
                 <label for="password">Senha</label>
                 <input type="password" id="password" name="password" placeholder="Informe a senha do usuário" class="form-control <?= $errors['password'] ? 'is-invalid' : '' ?>">
-                <div class="invalid-feedback">
+                <div class="invalid-feedback" >
                     <?= $errors['password'] ?>
                 </div>
             </div>
