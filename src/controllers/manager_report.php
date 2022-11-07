@@ -15,7 +15,7 @@ $hoursInMonth = explode(':', getTimeStringFromSeconds($seconds))[0]; // Pegar ap
 loadTemplateView(
     'manager_report',
     [
-        'activeUserCount' => $activeUserCount,
+        'activeUsersCount' => $activeUserCount,
         'absentUsers' => $absentUsers,
         'hoursInMonth' => $hoursInMonth,
     ]
